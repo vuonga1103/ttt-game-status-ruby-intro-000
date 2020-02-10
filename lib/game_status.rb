@@ -33,7 +33,7 @@ def won?(board)
   end
 end
 
-def full?(array)
+def full?(board)
   counter = 0
   array.each do |element|
     if (element == "X" || element == "O")
@@ -42,6 +42,14 @@ def full?(array)
     end
   end
   if counter == 9
+    return true
+  else
+    return false
+  end
+end
+
+def draw?(board)
+  if full?(board) && !won?(board)
     return true
   else
     return false
