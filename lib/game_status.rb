@@ -49,9 +49,35 @@ def full?(board)
 end
 
 def draw?(board)
-  if full?(board) && !won?(board)
+  if (full?(board) && !won?(board))
     return true
   else
     return false
+  end
+end
+
+def over?(board)
+  if ((won?(board) || draw?(board) || full?(board))
+    return true
+  else 
+    return false
+  end 
+end
+
+def winner(board)
+  if won?(board)
+    WIN_COMBINATIONS.each do |win_combination|
+      position_1 = array[win_combination[0]]
+      position_2 = array[win_combination[1]]
+      position_3 = array[win_combination[2]]
+      if (position_1 == "X" && position_2 == "X" && position_3 == "X")
+        return "X"
+      elsif (position_1 == "O" && position_2 == "O" && position_3 == "O")
+        return "O"
+      else
+      end
+    end
+  else
+    return nil
   end
 end
